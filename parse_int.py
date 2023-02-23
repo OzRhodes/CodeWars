@@ -1,3 +1,10 @@
+'''
+turn written digits between 0 and 1000000
+into a numerica value
+this code works but isn't being parsed correctly by codewars
+'''
+
+
 def parse_int(string):
     # Address outliers
     if string == 'zero':
