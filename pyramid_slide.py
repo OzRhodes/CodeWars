@@ -12,27 +12,25 @@ what is the largest sum adding a number for each row that is a fork of the row a
 as you step down you move left of right checking for the max of 2 numbers
 using slicing to identify the next 2 numbers to compare
 
-works correctly but the test code on codewars is incorrect - independely checked
+works almost correctly but the test code on codewars is incorrect - independely checked
+and the index movig isnt working correctly yet
 '''
 
 def pyramid_slide(pyramid):
     slide = 0
     sum = pyramid[0][0]
-    index = [0,1]
+    index = 0
 
     for i in range(1, len(pyramid)):
-        if pyramid[i][index[0]] > pyramid[i][index[1]]:
-            slide = pyramid[i][index[0]]
-            if index[0] >0:
-               # index[0] -= 1
-               # index[1] -= 1
+        if pyramid[i][index] > pyramid[i][index+1]:
+            slide = pyramid[i][index]
+            sum +=slide
+
         else:
-            slide = pyramid[i][index[1]]
-            if index[0] < len(pyramid[i]):
-                index[0] += 1
-                index[1] += 1
-        print(slide)
-        sum += slide
+            slide = pyramid[i][index+1]
+            index +=1
+            sum +=slide
+
     return sum
 
 #print(75+95+47+87+82+75+73+28+83+47+43+73+91+67+98)
